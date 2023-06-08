@@ -1,0 +1,2 @@
+class OshiLog < ApplicationRecord
+end
