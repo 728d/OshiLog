@@ -15,34 +15,23 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     root to: 'homes#top'
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
 
-  namespace :public do
+  scope module: :public do
     root to: 'homes#top'
-    get 'expenses/show'
-    get 'expenses/edit'
-  end
-  namespace :public do
-    get 'schedules/edit'
-    get 'schedules/show'
-  end
-  namespace :public do
-    get 'oshi_logs/index'
-    get 'oshi_logs/edit'
-    get 'oshi_logs/show'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/index'
-    get 'customers/comfirm_withdraw'
-  end
-  namespace :public do
     get 'homes/about'
+    resources :registrations, only: [:new, :create]
+    resources :sessions, only: [:new, :create, :destroy]
+    get 'customers/comfirm_withdraw'
+    patch 'customers/withdraw'
+    resources :customers, only: [:show,:index, :edit, :update]
+    resources :oshi_logs, only: [:index, :edit, :create, :update, :destroy]
+    resources :schedules, only: [:show, :edit, :create, :update, :destroy]
+    resources :expenses, only: [:show, :edit, :create, :update, :destroy]
+    resources :comments, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
-
 end
