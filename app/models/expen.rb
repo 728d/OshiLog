@@ -1,2 +1,0 @@
-class Expen < ApplicationRecord
-end
