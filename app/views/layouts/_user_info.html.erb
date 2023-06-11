@@ -1,0 +1,57 @@
+<div class=”container”>
+  <div class=”row”>
+    <h2>User info</h2>
+      <%= image_tag user_info.get_profile_image(100,100) %><br>
+        <table>
+          <tr>
+            <th>name</th>
+            <td><%= user_info.name %></td>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <td><%= user_info.self_introduction %></td>
+          </tr>
+          <tr>
+            <th>oshi name</th>
+            <td><%= user_info.oshi_name %></td>
+          </tr>
+        </table>
+  </div>
+  <div class=”row”>
+    <button type="button" class="btn btn-outline-secondary">
+      <%=link_to edit_customer_path(user_info.id) do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </button>
+  </div>
+
+  <div class=”row”>
+    <h2>New Oshi Log</h2>
+      <%= form_with model: oshi_log, method: :post do |f| %>
+        <div class="form-group">
+          <%= f.label :"Image", class: "mr-5" %>
+          <%= f.file_field :oshi_image, accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Oshi name", class: "mr-5" %>
+          <%= f.text_field :oshi_name%>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Oshi log body", class: "mr-5" %>
+          <%= f.text_field :body %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Tag", class: "mr-5" %>
+          <%= f.text_field :tag %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"public_flag", class: "mr-5" %>
+          <%= f.radio_button :is_published, true, checked: true %><%= f.label :"public" %>
+          <%= f.radio_button :is_published, false %>              <%= f.label :"private" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Create Oshi log' %>
+        </div>
+      <% end %>
+  </div>
+</div>

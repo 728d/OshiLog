@@ -1,16 +1,12 @@
-<body style="padding-top:5rem">
-
 <div class="container">        <!-- 全体を囲むコンテナ -->
 
   <div class="jumbotron text-white"
-       style="background:$gray-100;background-size:cover;text-shadow: 2px 2px 4px #666;">
-    <h1 class="mb-1">推しごとログ</h1>
+       style="background:url(img/22220574.jpeg);background-size:cover;text-shadow: 2px 2px 4px #666;">
+    <h1 class="mb-1">推しログ</h1>
     <p>My “oshi” is the reason why I am alive and the purpose of my life.</p>
   </div>
 　<div class="d-grid gap-2 col-6 mx-auto">
-  　<p><%= link_to "ログイン", new_customer_session_path, class: "btn btn-block btn-info" %></p>
-  　<p><%= link_to "サインアップ", new_customer_registration_path, class: "btn btn-block btn-success" %></p>
+  　<p><%= link_to "Log in", new_customer_session_path, class: "btn btn-block btn-info" %></p>
+  　<p><%= link_to "Sign up", new_customer_registration_path, class: "btn btn-block btn-success" %></p>
 　</div>
-　<%= render 'layouts/navbar' %>
-
 </div>

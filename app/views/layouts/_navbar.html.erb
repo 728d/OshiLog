@@ -1,14 +1,25 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-    <a href="#" class="navbar-brand">推しログ</a>
+  <%= link_to "推しログ", root_path, class: "navbar-brand" %>
     <ul class="navbar-nav">
-      <li class="nav-item"><%= link_to "マイページ", customer_path(current_customer.id), class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "ファイナンス", customers_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "ユーザー", customers_path, class: "nav-link" %></li>
-      <li class="nav-item"><%= link_to "みんなの推しログ", oshi_logs_path, class: "nav-link" %></li>
       <% if customer_signed_in? %>
-        <li class="nav-item"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %></li
+        <li class="nav-item"><%= link_to "About", homes_about_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "My page", customer_path(current_customer.id), class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Management", customers_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Users", customers_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Oshi logs", oshi_logs_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "nav-link" %></li>
+      <% elsif admin_signed_in? %>
+        <li class="nav-item"><%= link_to "Users", customers_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Oshi log", oshi_logs_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
+      <% else %>
+        <li class="nav-item"><%= link_to "About", homes_about_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Users", customers_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Oshi logs", oshi_logs_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Log in", new_customer_session_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Sign up", new_customer_registration_path, class: "nav-link" %></li>
       <% end %>
     </ul>
   </nav>
-  
+
   <!--リンク先がでたらめです-->

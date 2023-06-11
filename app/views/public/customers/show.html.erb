@@ -1,2 +1,29 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+
+<div class="col-md-8 offset-md-1">
+    <h2>Oshi logs</h2>
+    <table class="table">
+      <thead>
+        <th>   </th>
+        <th></th>
+        <th>Opinion</th>
+      </thead>
+      <tbody>
+        <% @oshi_logs.each do |oshi_log| %>
+          <tr>
+            <td>
+            <%= image_tag oshi_log.customer.get_profile_image(100,100)%>
+            </td>
+            <td>
+              <% if oshi_log.oshi_image.attached? %>
+                <%= image_tag oshi_log.oshi_image, class: 'img-fluid' %>
+              <% end %>
+            </td>
+            <td><%= oshi_log.oshi_name %></td>
+            <td><%= oshi_log.body %></td>
+            <td><%= oshi_log.tag %></td>
+          </tr>
+         <% end %>
+      </tbody>
+    </table>
+    </div>

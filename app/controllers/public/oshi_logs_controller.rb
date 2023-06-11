@@ -14,7 +14,7 @@ class Public::OshiLogsController < ApplicationController
     @user_info = @oshi_log.customer
     @oshilog_new = OshiLog.new
   end
-  
+
   def create
     @oshi_log = OshiLog.new(oshi_log_params)
     @oshi_log.customer_id = current_customer.id
@@ -27,7 +27,7 @@ class Public::OshiLogsController < ApplicationController
       render :index
     end
   end
-  
+
   def update
     @oshi_log = OshiLog.find(params[:id])
    if @oshi_log.update(oshi_log_params)
@@ -37,7 +37,7 @@ class Public::OshiLogsController < ApplicationController
      render :edit
    end
   end
-  
+
   def destroy
     oshi_log = OshiLog.find(params[:id])
     oshi_log.destroy
@@ -47,5 +47,5 @@ end
 
 private
   def oshi_log_params
-    params.require(:oshi_log).permit(:oshi_name, :body, :tag, :is_published)
+    params.require(:oshi_log).permit(:oshi_image, :oshi_name, :body, :tag, :is_published)
   end
