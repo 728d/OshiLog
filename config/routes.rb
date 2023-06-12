@@ -21,14 +21,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   scope module: :public do
     root to: 'homes#top'
+    get 'management' => 'managemnt#index'
     get 'homes/about'
     get 'customers/comfirm_withdraw'
     patch 'customers/withdraw'
     resources :customers, only: [:show,:index, :edit, :update]
-    resources :oshi_logs, only: [:index, :edit, :create, :update, :destroy]
+    resources :oshi_logs, only: [:show, :index, :edit, :create, :update, :destroy] do
+      resources :likes, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
     resources :schedules, only: [:show, :edit, :create, :update, :destroy]
     resources :expenses, only: [:show, :edit, :create, :update, :destroy]
-    resources :comments, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy]
   end
 end

@@ -1,2 +1,29 @@
-<h1>Public::OshiLogs#show</h1>
-<p>Find me in app/views/public/oshi_logs/show.html.erb</p>
+<div class="container">
+<div class="row">
+<div class="col-3">
+<%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+</div>
+<div class="col">
+<div class="card" style="width: 30rem;">
+  <li class="list-group-item"> <%= image_tag @oshi_log.customer.get_profile_image(50,50)%><%= @oshi_log.customer.name%></li>
+  <%= image_tag @oshi_log.oshi_image, class: "card-img-top", alt: "Card image cap" %>
+  <div class="card-body">
+    <p class="card-text">Body:<%= @oshi_log.body %></p>
+    <p>コメント数: <%= @oshi_log.comments.count %></p>
+    <p><%= render "public/likes/btn", oshi_log: @oshi_log %></P>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Oshi:<%= @oshi_log.oshi_name %></li>
+    <li class="list-group-item">Tag:<%= @oshi_log.tag %></li>
+    <li class="list-group-item"><%= @oshi_log.created_at %></li>
+  </ul>
+  <% if @oshi_log.customer == current_customer %>
+  <div class="card-body">
+    <%= link_to "Edit", edit_oshi_log_path, class: "card-link" %>
+    <%= link_to "Destroy", oshi_log_path, method: :delite, "data-confirm" => "本当に消しますか？", class: "card-link" %>
+  </div>
+  <% end %>
+  
+  <%= render "public/comments/index", oshi_log: @oshi_log %>
+  <%= render "public/comments/form", oshi_log: @oshi_log, comment: @oshi_log_comment %>
+</div>

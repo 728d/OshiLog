@@ -7,6 +7,7 @@ class Public::OshiLogsController < ApplicationController
 
   def edit
     @oshi_log = OshiLog.find(params[:id])
+    @user_info = current_customer
   end
 
   def show

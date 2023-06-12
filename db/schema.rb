@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_11_084315) do
+ActiveRecord::Schema.define(version: 2023_06_12_112419) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 2023_06_11_084315) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "customer_id", null: false
+    t.integer "oshi_log_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,17 +76,20 @@ ActiveRecord::Schema.define(version: 2023_06_11_084315) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "expens", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "expenses", force: :cascade do |t|
+    t.integer "customer_id", null: false
     t.datetime "start_time", null: false
     t.boolean "is_expenditure", null: false
     t.integer "cost", null: false
     t.string "title", null: false
     t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "oshi_log_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -99,6 +105,10 @@ ActiveRecord::Schema.define(version: 2023_06_11_084315) do
   end
 
   create_table "schedules", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.datetime "start_time", null: false
+    t.string "event_title", null: false
+    t.text "event_body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
