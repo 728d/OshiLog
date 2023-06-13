@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'managements/index'
+  end
 # 会員用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -21,10 +24,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   scope module: :public do
     root to: 'homes#top'
-    get 'management' => 'managemnt#index'
+    post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
     get 'homes/about'
+    get 'managements', to: 'managements#index'
     get 'customers/comfirm_withdraw'
     patch 'customers/withdraw'
+    get "search", to: "searches#search"
     resources :customers, only: [:show,:index, :edit, :update]
     resources :oshi_logs, only: [:show, :index, :edit, :create, :update, :destroy] do
       resources :likes, only: [:create, :destroy]

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <%= render 'layouts/user_info', user_info: @user_info %>
+    </div>
+
+  <div class="offset-1 col-8">
+    <h1>Results index</h1>
+    <% if @range == "User" %>
+    <%= render 'public/customers/user_index', customers: @customer %>
+    
+    <% else %>
+    <%= render 'public/oshi_logs/oshi_log_index', oshi_logs: @oshi_log %>
+    <% end %>
+  </div>

@@ -5,32 +5,8 @@
     </div>
 
   <div class="col-md-8 offset-md-1">
-    <h2>Users</h2>
-    <table class="table">
-      <thead>
-        <th>image</th>
-        <th>name</th>
-        <th>oshi name</th>
-        <th></th>
-      </thead>
-
-      <tbody>
-        <% @customers.each do |customer| %>
-         <tr>
-          <td>
-           <%= image_tag customer.get_profile_image(100,100) %>
-          </td>
-
-          <td><%= customer.name %></td>
-          <td><%= customer.oshi_name %></td>
-          <td><%= link_to 'Show', customer_path(customer.id) %></td>
-         </tr>
-        <% end %>
-      </tbody>
-
-    </table>
-
-    </div>
+    <%= render 'user_index', customers: @customers %>
+  </div>
 
   </div>
 </div>

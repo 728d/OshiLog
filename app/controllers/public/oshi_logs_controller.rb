@@ -14,6 +14,7 @@ class Public::OshiLogsController < ApplicationController
     @oshi_log = OshiLog.find(params[:id])
     @user_info = @oshi_log.customer
     @oshilog_new = OshiLog.new
+    @oshi_log_comment = Comment.new
   end
 
   def create
