@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+    </div>
+<div class="col">
+<h2>User info</h2>
+<% if @customer.errors.any? %>
+  <%= @customer.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+   <% @customer.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: @customer, url:customer_path(@customer.id), method: :patch do |f| %>
+
+<div class="form-group">
+  <%= f.label :"Profile Image", class: "mr-5" %>
+  <%= f.file_field :profile_image, accept: "image/jpeg" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :"Name", class: "mr-5" %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :"introduction", class: "mr-5" %>
+  <%= f.text_area :self_introduction %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :"Oshi Name", class: "mr-5" %>
+  <%= f.text_field :oshi_name %>
+  </div>
+
+  <div class="form-group">
+  <%= f.submit 'Update User info' %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

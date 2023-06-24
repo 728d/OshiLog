@@ -1,0 +1,45 @@
+<div class="container">
+<div class="row">
+<div class="col-3">
+<%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+</div>
+
+ <% if @oshi_log.errors.any? %>
+   <%= @oshi_log.errors.count %>errors prohibited this obj from being saved:
+    <ul>
+   <% @oshi_log.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+    </ul>
+   <% end %>
+
+<div class=”row”>
+    <h1>Editing Oshi Log</h1>
+      <%= form_with model: @oshi_log do |f| %>
+        <div class="form-group">
+          <%= f.label :"Image", class: "mr-5" %>
+          <%= f.file_field :oshi_image, accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Oshi name", class: "mr-5" %>
+          <%= f.text_field :oshi_name%>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Oshi log body", class: "mr-5" %>
+          <%= f.text_field :body%>
+        </div>
+        <div class="form-group">
+          <%= f.label :"Tag", class: "mr-5" %>
+          <%= f.text_field :tag%>
+        </div>
+        <div class="form-group">
+          <%= f.label :"public_flag", class: "mr-5" %>
+          <%= f.radio_button :is_published, true, checked: true %><%= f.label :"public" %>
+          <%= f.radio_button :is_published, false %>              <%= f.label :"private" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Editing Oshi log' %>
+        </div>
+      <% end %>
+  </div>
+</div>

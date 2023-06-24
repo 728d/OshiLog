@@ -1,0 +1,21 @@
+<table>
+  <tbody>
+      <% oshi_log.comments.each do |comment| %>
+      <tr>
+
+        <td>
+          <%= link_to customer_path(comment.customer) do %>
+            <%= image_tag comment.customer.get_profile_image(100,100), :size => "100x100" %><br>
+            <%= comment.customer.name %>
+          <% end %>
+        </td>
+        <td><%= comment.comment %></td>
+        <td>
+          <% if comment.customer == current_customer %>
+            <%= link_to "Destroy", oshi_log_comment_path(oshi_log, comment), method: :delete, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,11 @@
+<% if oshi_log.like_ids.present? %>
+  <%= link_to oshi_log_like_path(oshi_log), method: :delete do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= oshi_log.likes.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to oshi_log_likes_path(oshi_log), method: :post do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= oshi_log.likes.count %> いいね
+  <% end %>
+<% end %>

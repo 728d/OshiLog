@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row">
+<div class="col-3">
+<%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+</div>
+<div class="col-9">
+<div class="row">
+<% @oshi_logs.reverse.each do |oshi_log| %>
+<div class="col-4">
+<div class="card" style="width: 15rem;">
+  <%= image_tag oshi_log.oshi_image, class: "card-img-top", alt: "Card image cap" %>
+  <div class="card-body">
+    <p class="card-text">Body:<%= oshi_log.body %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Oshi:<%= oshi_log.oshi_name %></li>
+    <li class="list-group-item">Tag:<%= oshi_log.tag %></li>
+    <li class="list-group-item"><%= oshi_log.created_at %></li>
+  </ul>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+</div>
