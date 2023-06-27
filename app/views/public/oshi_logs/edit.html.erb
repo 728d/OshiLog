@@ -1,19 +1,19 @@
 <div class="container">
-<div class="row">
-<div class="col-3">
-<%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
-</div>
+  <div class="row">
+    <div class="col-3">
+      <%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+    </div>
 
- <% if @oshi_log.errors.any? %>
-   <%= @oshi_log.errors.count %>errors prohibited this obj from being saved:
-    <ul>
-   <% @oshi_log.errors.full_messages.each do |message| %>
-     <li><%= message %></li>
+      <% if @oshi_log.errors.any? %>
+        <%= @oshi_log.errors.count %>errors prohibited this obj from being saved:
+     <ul>
+        <% @oshi_log.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-    </ul>
-   <% end %>
 
-<div class=”row”>
+  <div class=”row”>
     <h1>Editing Oshi Log</h1>
       <%= form_with model: @oshi_log do |f| %>
         <div class="form-group">
