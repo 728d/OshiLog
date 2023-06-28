@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <%= render 'layouts/user_info', user_info: @user_info, oshi_log: @oshi_log %>
+    </div>
+
+  <div class="col-md-8 offset-md-1">
+    <%= render 'user_index', customers: @customers %>
+  </div>
+
+  </div>
+</div>

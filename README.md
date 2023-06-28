@@ -1,24 +1,37 @@
-# README
+# 推しログ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+推しの良さを共通のオタクと共有できるコミュニティサイト
+推しとの思い出を記録でき、振り返ることもできます
 
-Things you may want to cover:
+### テーマを選んだ理由
+地下アイドルを推していた時、ライブに行くたびにチェキが増えていったので、撮ったチェキをデジタル管理して一覧で見られたり、
+タグやワードで検索できたりしたら便利だなと考えこのテーマにしました。
+また、推しの応援に費やす金額を適切に管理しながら、自分自身の生活も大切にするために、支出管理機能を導入すると便利だなと思ったので家計簿を導入することにしました。
+これにより、推し活に使う予算を適切に設定し、予算内での支出を管理することができます。
+自分の生活費や他の重要な出費を考慮しながら、バランスの取れた支出を実現することが目指せます。
+アイドル現場には１人で行くことが多く推しの良さ話せるオタ友と交流できるといいなと思ったのでコミュニティサイトがあるといいなと思いました。
 
-* Ruby version
+### ターゲットユーザ
+- チェキやブロマイドが増えすぎてデジタル管理したい人
+- スケジュール管理したい人
+- 支出管理したい人
+- オタ友と交流したい人
 
-* System dependencies
+### 主な利用シーン
+- 推しとの思い出を記録したい時
+- 推しとの思い出を振り返りたい時
+- 支出管理をしたい時
+- スケジュール管理をしたい時
+- 推しの良さを仲間と共有したい時
 
-* Configuration
+## 設計書
+<...>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
