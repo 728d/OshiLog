@@ -14,13 +14,9 @@
         <li class="nav-item"><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "nav-link" %></li>
       <% else %>
         <li class="nav-item"><%= link_to "About", homes_about_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Users", customers_path, class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Oshi logs", oshi_logs_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Log in", new_customer_session_path, class: "nav-link" %></li>
         <li class="nav-item"><%= link_to "Sign up", new_customer_registration_path, class: "nav-link" %></li>
       <% end %>
     </ul>
     <%= render 'public/searches/form' %>
   </nav>
-
-  <!--リンク先がでたらめです-->
