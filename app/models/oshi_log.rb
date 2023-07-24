@@ -3,6 +3,8 @@ class OshiLog < ApplicationRecord
   has_many :comments,  dependent: :destroy
   has_many :likes,     dependent: :destroy
   has_one_attached :oshi_image
+  
+  validates :oshi_image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
 
   def self.looks(range, search, word)
     if range == "Oshi Log"

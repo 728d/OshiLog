@@ -2,7 +2,7 @@
 <div class="col-4">
 <div class="card" style="width: 15rem ;">
   <li class="list-group-item"> <%= image_tag oshi_log.customer.get_profile_image(50,50), :size => "50x50" %><%= oshi_log.customer.name%></li>
-  <%= image_tag oshi_log.oshi_image, class: "card-img-top", alt: "Card image cap" %>
+  <%= image_tag oshi_log.oshi_image, class: "card-img-top", alt: "Card image cap" if oshi_log.oshi_image.attached? %>
   <div class="card-body">
     <p class="card-text" style="height: 50px ;">Body:<%= oshi_log.body %></p>
   </div>

@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2023_06_12_112419) do
     t.string "oshi_name", null: false
     t.text "body", null: false
     t.string "tag", null: false
-    t.boolean "is_published", default: false, null: false
+    t.boolean "is_published", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
